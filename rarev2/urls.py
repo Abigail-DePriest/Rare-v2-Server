@@ -1,3 +1,13 @@
+from django.conf.urls import include
+from rest_framework import routers
+from rarev2api.views import PostsView
+from django.contrib import admin
+from django.urls import path
+
+
+
+
+
 """rarev2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,6 +32,8 @@ from django.conf.urls import include
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'users', UserView, 'user')
 
+router = routers.DefaultRouter(trailing_slash=False)
+router.register (r'posts', PostsView, 'post')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
