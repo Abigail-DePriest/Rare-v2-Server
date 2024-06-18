@@ -23,10 +23,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.contrib import admin
+from django.urls import path
+from rarev2api.views import UserView
+from rest_framework import routers
+from django.conf.urls import include
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'users', UserView, 'user')
 router.register (r'posts', PostsView, 'post')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', include(router.urls)),
+    path('', include(router.urls)),
 ]
