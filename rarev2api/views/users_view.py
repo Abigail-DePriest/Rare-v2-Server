@@ -19,38 +19,28 @@ class UserView(ViewSet):
         return Response(serializer.data)       
   
   def create(self, request):
-        try:
-            created_on_date = datetime.strptime(request.data["createdOn"], "%Y-%m-%d").date()
-        except (KeyError, ValueError):
-            return Response({"error": "Invalid or missing createdOn date. Date format should be YYYY-MM-DD"}, status=status.HTTP_400_BAD_REQUEST)
-        
-        # Required fields
-        required_fields = ["first_name", "last_name", "email", "uid"]
-        for field in required_fields:
-            if field not in request.data:
-                return Response({"error": f"Missing required field: {field}"}, status=status.HTTP_400_BAD_REQUEST)
+    try:
+        # Attempt to parse the created_on date using the correct key
+        created_on_date = datetime.strptime(request.data["created_on"], "%Y-%m-%d").date()
+    except (KeyError, ValueError):
+        # Return an error response if parsing fails
+        return Response({"error": "Invalid or missing created_on date. Date format should be YYYY-MM-DD"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Optional fields with defaults
-        bio = request.data.get("bio", "")
-        profile_image_url = request.data.get("profile_image_url", "")
-        active = request.data.get("active", False)
-        is_staff = request.data.get("is_staff", False)
+    # Attempt to create the user
+    user = Users.objects.create(
+        first_name=request.data.get("first_name"),
+        last_name=request.data.get("last_name"),
+        bio=request.data.get("bio"),
+        profile_image_url=request.data.get("profile_image_url"),
+        email=request.data.get("email"),
+        created_on=created_on_date,
+        active=request.data.get("active", False),
+        is_staff=request.data.get("is_staff", False),
+        uid=request.data.get("uid")
+    )
 
-        # Create a new user
-        user = Users.objects.create(
-            first_name=request.data["first_name"],
-            last_name=request.data["last_name"],
-            bio=bio,
-            profile_image_url=profile_image_url,
-            email=request.data["email"],
-            created_on=created_on_date,
-            active=active,
-            is_staff=is_staff,
-            uid=request.data["uid"]
-        )
-
-        serializer = UserSerializer(user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)    
+    serializer = UserSerializer(user)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)   
 
   def update(self, request, pk):
     try:

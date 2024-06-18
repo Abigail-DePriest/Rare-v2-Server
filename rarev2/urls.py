@@ -31,9 +31,8 @@ from django.conf.urls import include
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'users', UserView, 'user')
-
-router = routers.DefaultRouter(trailing_slash=False)
 router.register (r'posts', PostsView, 'post')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
