@@ -1,8 +1,9 @@
 from django.conf.urls import include
 from rest_framework import routers
-from rarev2api.views import PostsView
+from rarev2api.views import register_user, check_user
 from django.contrib import admin
 from django.urls import path
+from rarev2api.views.posts import PostsView
 
 
 
@@ -28,5 +29,7 @@ router = routers.DefaultRouter(trailing_slash=False)
 router.register (r'posts', PostsView, 'post')
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', include(router.urls)),
+    path('', include(router.urls)),
+    path('register', register_user),
+    path('checkuser', check_user),
 ]
