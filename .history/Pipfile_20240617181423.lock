@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "85ecdf8f30ebd888a9512aaf8bfa40573b8c5d1e87b3e239cdbd76a86db8efae"
+            "sha256": "39d0baad830c686b0d0d94482ac7249cee903cb570af1bd602cf0d9cb1b8d6c6"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "*"
+            "python_version": "3.12"
         },
         "sources": [
             {
@@ -152,11 +152,11 @@
         },
         "pycodestyle": {
             "hashes": [
-                "sha256:442f950141b4f43df752dd303511ffded3a04c2b6fb7f65980574f0c31e6e79c",
-                "sha256:949a39f6b86c3e1515ba1787c2022131d165a8ad271b11370a8819aa070269e4"
+                "sha256:41ba0e7afc9752dfb53ced5489e89f8186be00e599e712660695b7a75ff2663f",
+                "sha256:44fe31000b2d866f2e41841b18528a505fbd7fef9017b04eff4e2648a0fadc67"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==2.12.0"
+            "version": "==2.11.1"
         },
         "pylint": {
             "hashes": [
@@ -203,7 +203,7 @@
                 "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc",
                 "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
             ],
-            "markers": "python_version < '3.11'",
+            "markers": "python_version >= '3.7'",
             "version": "==2.0.1"
         },
         "tomlkit": {
@@ -213,14 +213,6 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==0.12.5"
-        },
-        "typing-extensions": {
-            "hashes": [
-                "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d",
-                "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
-            ],
-            "markers": "python_version < '3.10'",
-            "version": "==4.12.2"
         },
         "tzdata": {
             "hashes": [
@@ -303,7 +295,7 @@
                 "sha256:f8212564d49c50eb4565e502814f694e240c55551a5f1bc841d4fcaabb0a9b8a",
                 "sha256:ffa565331890b90056c01db69c0fe634a776f8019c143a5ae265f9c6bc4bd6d4"
             ],
-            "markers": "python_version < '3.11'",
+            "markers": "python_version >= '3.11'",
             "version": "==1.16.0"
         }
     },
