@@ -1,4 +1,4 @@
-from rarev2api.models import RareUsers
+from rarev2api.models import RareUser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -10,7 +10,7 @@ def check_user(request):
 
     # Use the built-in authenticate method to verify
     # authenticate returns the user object or None if no user is found
-    user = RareUsers.objects.filter(uid=uid).first()
+    user = RareUser.objects.filter(uid=uid).first()
 
     # If authentication was successful, respond with their token
     if user is not None:
@@ -35,7 +35,7 @@ def register_user(request):
       request -- The full HTTP request object
     '''
 
-    user = RareUsers.objects.create(
+    user = RareUser.objects.create(
         bio=request.data['bio'],
         uid=request.data['uid']
     )

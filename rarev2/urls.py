@@ -4,7 +4,7 @@ from django.contrib import admin
 from rarev2api.views.posts import PostsView
 from django.contrib import admin
 from django.urls import path
-from rarev2api.views.rare_users import RareUserView
+from rarev2api.views.rare_user import RareUserView
 from rest_framework import routers
 
 router = routers.DefaultRouter(trailing_slash=False)
