@@ -40,6 +40,12 @@ class PostsView(ViewSet):
         )
         serializer = PostsSerializer(post)
         return Response(serializer.data)
+    
+    
+    def destroy(self, request, pk):
+        post = Posts.objects.get(pk=pk)
+        post.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
       
       
 class PostsSerializer(serializers.ModelSerializer):

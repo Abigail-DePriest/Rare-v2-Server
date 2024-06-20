@@ -95,6 +95,7 @@ ipython_config.py
 Pipfile.lock
 .vscode
 .loaddata.sql
+.history
 
 # poetry
 #   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
