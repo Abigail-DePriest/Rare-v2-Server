@@ -1,9 +1,9 @@
 from django.db import models
-from .users import Users
+from .rare_user import RareUser
 
-class Posts(models.Models):
-  
-  rare_user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
+class Post(models.Model):
+
+  rare_user = models.ForeignKey(RareUser, on_delete=models.CASCADE)
   title = models.CharField(max_length=50)
   publication_date = models.DateField()
   image_url = models.CharField(max_length=50)
