@@ -1,2 +1,2 @@
 from .posts import Posts
-from .users import Users
+from .rare_user import RareUser
