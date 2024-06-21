@@ -37,13 +37,17 @@ def register_user(request):
 
     user = RareUser.objects.create(
         bio=request.data['bio'],
-        uid=request.data['uid']
+        uid=request.data['uid'],
+        first_name=request.data['first_name'],
+        last_name=request.data['last_name']
     )
 
     # Return the users info to the client
     data = {
         'id': user.id,
         'uid': user.uid,
-        'bio': user.bio
+        'bio': user.bio,
+        'first_name': user.first_name,
+        'last_name': user.last_name
     }
     return Response(data)
