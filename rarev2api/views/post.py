@@ -65,4 +65,4 @@ class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for post instances"""
     class Meta:
         model = Post
-        fields = ('rare_user', 'title', 'publication_date', 'image_url', 'content', 'approved')
+        fields = ('id', 'rare_user', 'title', 'publication_date', 'image_url', 'content', 'approved')
